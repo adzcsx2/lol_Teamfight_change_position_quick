@@ -1,8 +1,6 @@
 # 生成exe
 # pyinstaller.exe -F --i icon.ico main.py
-import sys
 import time
-sys.path.append("E:\\python_workplace\\yundinghuanwei\\venv\\lib\\site-packages")
 import pyautogui as pag
 from pynput import keyboard
 from pynput.mouse import Button, Controller
