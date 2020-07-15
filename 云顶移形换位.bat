@@ -1,1 +1,0 @@
-python E:\python_workplace\yundinghuanwei\main.py
