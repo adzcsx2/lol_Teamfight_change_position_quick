@@ -1,3 +1,5 @@
+# 生成exe
+# pyinstaller.exe -F --i icon.ico main.py
 import sys
 import time
 sys.path.append("E:\\python_workplace\\yundinghuanwei\\venv\\lib\\site-packages")
@@ -15,6 +17,7 @@ def move(offset, x, y):
     else:
         x = x - 2 * off
         click(x, y)
+    print("在棋盘内，移动棋子到：",x,y)
 
 
 def click(x, y):
@@ -23,17 +26,15 @@ def click(x, y):
 
 
 def on_press(key):
-    try:
-        print("按了{0}".format(key.char))
-    except AttributeError:
-        print("特殊按键{0}".format(key))
+    # 键盘按下
+    print("按下了{}".format(key))
 
 
 def on_release(key):
-    print("{0}键盘释放".format(key))
     try:
         if (key == keyboard.Key.space):
             x, y = pag.position()  # 返回鼠标的坐标
+            print("按下空格，坐标 :",x,y)
             mouse.click(Button.left)
             time.sleep(0.1)
             if y > 400 and y < 490 or y > 550 and y < 640:
