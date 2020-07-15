@@ -9,7 +9,6 @@ offset_2 = 960
 mouse = Controller()
 def move(offset, x, y):
     off = abs(offset - x)
-
     if x < offset:
         x = x + 2 * off
         click(x,y)
@@ -33,7 +32,7 @@ def on_press(key):
 def on_release(key):
     print("{0}键盘释放".format(key))
     try:
-        if (key.char == 'b'):
+        if (key == keyboard.Key.space):
             x, y = pag.position()  # 返回鼠标的坐标
             mouse.click(Button.left)
             time.sleep(0.1)
@@ -42,6 +41,7 @@ def on_release(key):
             if y > 490 and y < 550 or y > 640 and y < 720:
                 move(offset_2, x, y)
             time.sleep(0.1)
+            pag.moveTo(x, y)#还原位置
     except AttributeError:
         pass
 
